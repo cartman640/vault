@@ -3,6 +3,7 @@ This is a docker container, compatible with dRunner, for running Hashicopr Vault
 To install:
 
 drunner install infmon/vault
+
 vault init
 
 Currently supports the init, unseal, auth, write and read commands

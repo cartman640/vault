@@ -1,6 +1,6 @@
 # Docker file to run Hashicorp Vault (vaultproject.io)
 FROM alpine
-MAINTAINER Sam Barham <s.barham@adinstruments.com>
+MAINTAINER infmon
 
 # Enviroment vars
 ENV VAULT_VERSION 0.4.1
