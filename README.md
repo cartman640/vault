@@ -1,4 +1,4 @@
-This is a docker container, compatible with dRunner, for running Hashicopr Vault.  It's configured to use the disk backend.
+This is a docker container, compatible with dRunner, for running Hashicorp Vault.  It's configured to use the disk backend.
 
 To install:
 
