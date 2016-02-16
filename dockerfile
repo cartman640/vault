@@ -1,6 +1,6 @@
 # Docker file to run Hashicorp Vault (vaultproject.io)
-FROM alpine
-MAINTAINER infmon
+FROM drunner/baseimage-alpine
+MAINTAINER drunner
 
 # Enviroment vars
 ENV VAULT_VERSION 0.4.1
@@ -18,8 +18,7 @@ RUN apk --no-cache add bash ca-certificates wget && \
 COPY ["./config", "/config"]
 COPY ["./drunner", "/drunner"]
 
-RUN adduser -S vault && \
-    chmod a+rwx /usr/local/bin/vault && \
+RUN chmod a+rwx /usr/local/bin/vault && \
     chmod a+r -R /config && \
     chmod a-w -R /config && \
     chmod a+r -R /drunner && \
@@ -29,7 +28,7 @@ RUN adduser -S vault && \
 
 VOLUME /data
 
-USER vault
+USER druser
 
 # Listener API tcp port
 EXPOSE 8200

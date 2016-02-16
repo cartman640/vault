@@ -24,11 +24,6 @@ MYDIR=$( dirname "$(readlink -f "$0")" )
 source "$MYDIR/variables.sh"
 source "$MYDIR/utils.sh"
 
-# pretty printing of code.
-e=$(printf "\e") 
-readonly CODE_S="$e[32m"
-readonly CODE_E="$e[0m"
-
 #------------------------------------------------------------------------------------
 # showhelp - give some info about the service. SERVICENAME and IMAGENAME are provided by variables.sh.
 
