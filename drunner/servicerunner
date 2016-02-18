@@ -114,6 +114,7 @@ function main {
                      
          uninstall)
             serviceStop
+            serviceDelete
             ;;
                      
          backupstart)
@@ -140,6 +141,7 @@ function main {
          
          updatestart)
             serviceStop
+            serviceDelete
             ;;
 
          updateend)
@@ -150,6 +152,15 @@ function main {
             ;;
             
          #--- custom commands
+         
+         start)
+            serviceStart
+            ;;
+            
+         stop)
+            serviceStop
+            serviceDelete
+            ;;
 
          init)
             dockerexec vault init

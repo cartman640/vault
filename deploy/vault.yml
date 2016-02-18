@@ -1,0 +1,31 @@
+---
+  - hosts: vault
+    become: yes
+    tasks:
+      - name: Install docker
+        shell: wget -nv -O /tmp/install_docker.sh https://goo.gl/2cxobx ; bash /tmp/install_docker.sh
+        args:
+          creates: /usr/bin/docker
+        
+      - name: Create drunner user (druser)
+        user:
+          home: /home/druser
+          shell: /bin/bash
+          createhome: yes
+          append: yes
+          groups: docker
+          name: druser
+          state: present
+      
+      - name: Install drunner
+        shell: wget https://raw.githubusercontent.com/drunner/install/master/drunner-install ; bash drunner-install ~/drunner
+        args:
+          chdir: /home/druser
+          creates: /home/druser/drunner
+        become_user: druser
+        
+      - name: Install vault
+        command: /home/druser/bin/drunner install infmon/vault
+        args:
+          creates: /home/druser/bin/vault
+        become_user: druser
